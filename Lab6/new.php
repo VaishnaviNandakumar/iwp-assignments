@@ -1,0 +1,2 @@
+<?php     $i=0;     foreach(file("food.txt", FILE_IGNORE_NEW_LINES) as $food){         list($day,$starter,$main,$dessert)=explode(":!:",$food);     ?>     <table>         <tr>             <th colspan="4"><?=$day ?></th>             <td ><?= $starter ?></td>         </tr>         <tr>             <td>---</td>         </tr>         <tr>             <td><?= $main ?></td>         </tr>         <tr>             <td>---</td>         </tr>         <tr>             <td><?= $dessert ?></td>         </tr>     </table>     <?php     }     fclose($myfile); 
+?> 

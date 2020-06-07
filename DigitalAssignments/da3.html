@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment 3</title>
+  <style>
+    .content{
+     
+     margin-left: 20%;
+    }
+    .firstSquare {
+      top: 100px;
+      left: 100px;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto;
+      position: absolute;
+      -webkit-animation: firstSpin 1s infinite linear;
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
+    }
+
+    .secondSquare {
+      top: 100px;
+      left: 300px;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto;
+      position: absolute;
+      -webkit-animation: secondSpin 1s infinite linear;
+      animation-iteration-count: infinite;
+      animation-duration: 4s;
+    }
+
+    .thirdSquare {
+      top: 100px;
+      left: 500px;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto;
+      position: absolute;
+      -webkit-animation: thirdSpin 1s infinite linear;
+      animation-duration: 6s;
+    }
+
+    @-webkit-keyframes firstSpin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        background-color: green;
+      }
+
+      50% {
+        -webkit-transform: rotate(360deg);
+        background-color: red;
+      }
+
+      100% {
+        -webkit-transform: rotate(720deg);
+        background-color: green;
+      }
+    }
+
+    @-webkit-keyframes secondSpin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        background-color: blue;
+      }
+
+      50% {
+        -webkit-transform: rotate(360deg);
+        background-color: orange;
+      }
+
+      100% {
+        -webkit-transform: rotate(720deg);
+        background-color: blue;
+      }
+    }
+
+    @-webkit-keyframes thirdSpin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        background-color: purple;
+      }
+
+      50% {
+        -webkit-transform: rotate(360deg);
+        background-color: yellow;
+      }
+
+      100% {
+        -webkit-transform: rotate(720deg);
+        background-color: purple;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class ="content">
+    <h1>ASSIGNMENT 3</h1>
+    <div class="firstSquare"></div>
+    <div class="secondSquare"></div>
+    <div class="thirdSquare"></div>
+  </div>
+</body>
+
+</html>

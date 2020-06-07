@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Slideshow</title>
+<script>
+var imageArray = ["Image5.jpg", "Image6.jpg", "Image7.jpg"];
+var index = parseInt(0);
+var newImage = document.getElementsByName("newImage").value;
+function Next()
+ {
+ if(index == imageArray.length - 1)
+ {
+ index = 0;
+ }
+ else
+ {
+ index++;
+ }
+ document.getElementById("slide").setAttribute("src",
+imageArray[index]);
+ }
+ function Add() {
+ newImg = document.getElementById("newImage").value;
+ imageArray.push(newImg);
+ console.log(imageArray);
+ return false;
+ }
+</script>
+</head>
+<style>
+h2{
+ margin-top: 2%;
+}
+body{
+ background-color: lightyellow;
+}
+.content{
+ margin-left: 5%;
+ margin-right: 5%;
+}
+img{
+ width: 600px;
+ height:300px;
+ margin-left: 28%;
+ margin-top:2%
+}
+button{
+ margin-top:2%;
+ width:100px;
+ height:30px;
+}
+.add{
+ margin-top: -2.2%;
+ margin-left: 50%;
+ width:200px;
+ height:30px;
+}
+.next{
+ margin-left: 42%;
+}
+.mySlides {display:none;}
+</style>
+<body>
+<h2><center>SLIDESHOW EXAMPLE</center></h2>
+<img src="Image5.jpg" id="slide" />
+<div id="button">
+<button onclick="Next()" class="next">Next</button>
+ <form onSubmit="return Add()" class="add">
+ <input type="text" id="newImage">
+ <input type="submit" value="Add">
+ </form>
+</div>
+<br>
+<div class ="content">
+ <p>
+ Lorem Ipsum is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry's
+standard dummy text ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also
+the leap into electronic typesetting, remaining essentially
+unchanged. It was popularised in the 1960s with the release of
+Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker
+including versions of Lorem Ipsum
+ </p>
+</div>
+</body>
+</html>

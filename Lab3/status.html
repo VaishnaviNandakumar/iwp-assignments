@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Lab 1A</title>
+</head>
+<body>
+<div class = "menu">
+<form id=form1>
+  <h2> MENU </h2><br>
+
+   
+  <h4>DISHES</h4>
+  
+  <input id="Check1" type="checkbox" name="grp1" value="20"/> Roti (2pc)
+  <input id="Check2" type="checkbox" name="grp1" value="80"/> Chicken Curry
+  <input id="Check3" type="checkbox" name="grp1" value="65"/> Paneer Curry
+  <input id="Check4" type="checkbox" name="grp2" value="100"/> Veg Pizza
+
+  <h4> STARTERS </h4>
+  <input id="Check5" type="checkbox" name="grp2" value="40"/> Tomato Soup 
+  <input id="Check6" type="checkbox" name="grp2" value="75"/> Dragon Chicken
+  <input id="Check7" type="checkbox" name="grp2" value="85"/> Grilled Kebabs
+  
+  <h4> SOFT DRINKS </h4>
+  <input id="Radio1" type="radio" name="grp3" value="15"/> Coke
+  <input id="Radio2" type="radio" name="grp3" value="15"/> Pepsi
+  <input id="Radio3" type="radio" name="grp3" value="15"/> Sprite
+  <br>
+   <br>
+  <input id="btn1" type="button" value="Submit" onclick="display()" /><br /><br />
+   
+  <textarea id="txtarea" cols="50" rows="15"></textarea><br /><br />
+
+</form>
+</div>
+
+<style>
+   textarea{
+      border: 2px solid black;
+   }
+   body{
+      background-color: lightgoldenrodyellow;
+   }
+   h2{
+      text-align: center;
+   }
+   .menu{
+      padding: 10px;
+      background-color: lightpink;
+      border: 2px solid black;
+      width: 50%;
+      margin-left: 25%;
+   }
+</style>
+
+<script>
+   function display()
+   {
+      form=document.getElementById("form1");
+      total=0;
+      var msg="";
+     
+      if(form.Check1.checked==true)
+      {
+         msg=msg +"Roti \t- Rs." + form.Check1.value +"\n"; // add the  dish name and its price to the msg.
+         total=total+parseInt(form.Check1.value); // calculate the total.
+      }
+      if(form.Check2.checked==true)
+      {
+         msg= msg + "Chicken Curry \t- Rs." + form.Check2.value + " \n";
+         total=total+parseInt(form.Check2.value);
+      }
+      if(form.Check3.checked==true)
+      {
+         msg=msg +"Paneer Curry \t- Rs." + form.Check3.value +" \n";
+         total=total+parseInt(form.Check3.value);
+      }
+      if(form.Check4.checked==true)
+      {
+         msg=msg + "Veg Pizza \t- Rs." + form.Check4.value + " \n";
+         total=total+parseInt(form.Check4.value);
+      }
+      if(form.Check5.checked==true)
+      {
+         msg=msg + "Tomato Soup \t- Rs." + form.Check5.value + "\n";
+         total=total+parseInt(form.Check5.value);
+      }
+      if(form.Check6.checked==true)
+      {
+         msg=msg+ "Dragon Chicken \t- Rs." + form.Check6.value + "\n";
+         total=total+parseInt(form.Check6.value);
+      }
+      if(form.Check7.checked==true)
+      {
+         msg=msg+ "Grilled Chicken \t- Rs." + form.Check7.value + "\n";
+         total=total+parseInt(form.Check7.value);
+      }
+     
+      if(form.Radio1.checked==true)
+      {
+         msg=msg+ "Coke \t\t- Rs." + form.Radio1.value + "\n";
+         total=total+parseInt(form.Radio1.value);
+      }
+      if(form.Radio2.checked==true)
+      {
+         msg=msg+ "Pepsi \t\t- Rs." + form.Radio2.value + "\n";
+         total=total+parseInt(form.Radio2.value);
+      }
+      if(form.Radio3.checked==true)
+      {
+         msg=msg+ "Sprite \t\t- Rs." + form.Radio3.value + "\n";
+         total=total+parseInt(form.Radio3.value);
+      }
+      
+  
+      form.txtarea.value=msg + "\n \t TOTAL BILL :\t"+ total; 
+    }
+    </script>
+</body>
+
+
+</html>

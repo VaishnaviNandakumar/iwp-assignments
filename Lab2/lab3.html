@@ -1,0 +1,81 @@
+<html >
+<head>
+ <title>LAB3</title>
+</head>
+<style>
+.field{
+ height: 15px;
+ width:50px;
+}
+</style>
+<body>
+ <h2>Increment</h2>
+ <button onclick="inc()">Add 1</button>&nbsp;<input
+type="text" class="field" id="add1">
+ <h2>Add Numbers</h2>
+ <input type="text" class="field" id="no1">+<input
+type="text" class="field" id="no2"> <button
+onclick="add()">=</button> <input type="text" class="field"
+id="ans">
+ <h2>Is it prime?</h2>
+ <input type="text" class="field" id="inp"> <button
+onclick="prime()">Prime(Yes/No)</button> <input type="text"
+class="field" id="prime">
+ <h2>Number Guessing Game</h2>
+ <input type="text" class="field" id="inp1"> <button
+onclick="guess()">Am I Right?</button> <input type="text"
+class="field" id="res">
+<script>
+function inc()
+{
+ var x = parseInt(document.getElementById('add1').value);
+ var y = x+1;
+ document.getElementById('add1').value=y;
+}
+function add()
+{
+var a= parseInt(document.getElementById('no1').value);
+var b= parseInt(document.getElementById('no2').value);
+var c = a+b;
+document.getElementById('ans').value=c;
+}
+function prime()
+{
+var p = parseInt(document.getElementById('inp').value);
+var i = 2;
+var flag= 0;
+while ( i< p/2)
+{
+ if( p%i == 0)
+ {
+ flag = 1;
+ }
+ i++;
+}
+if ( flag == 0)
+{
+ var y = "Prime";
+}
+else
+{
+ var y = "Not Prime";
+}
+document.getElementById('prime').value =y;
+}
+function guess()
+{
+var k= document.getElementById('inp1').value;
+var g= 10
+if (k == g)
+{
+ var x="Yes";
+}
+else
+{
+ var x="No";
+}
+document.getElementById('res').value=x;
+}
+</script>
+</body>
+</html>

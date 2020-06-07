@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calendar</title>  
+</head>
+
+<style>
+    .btn{
+        margin-left: 200%;
+        height: 30px;
+        width: 30px;
+        background-color: lightblue;
+    }
+
+    .inner{
+        display: inline-block;
+        color: blue;
+    }
+
+    .container{
+        width:400px ;
+        margin-left: 35%;
+        margin-top: 10%;
+        font-size: 20px;
+    }
+
+    #month{
+        background-color: aquamarine;
+    }
+
+    tr{
+        background-color: rgb(121, 192, 240);
+    }
+
+    th{
+        background-color: rgb(58, 123, 209);
+        width:40px;
+        height: 40px;
+    }
+</style>
+
+<body>
+    <div class="container">
+            
+        <caption>
+                <div class=" inner"> <h3 id="monthAndYear"></h3></div>
+                <div class = "inner"> <button class="btn" id="previous" onclick="Previous_month()"><</button></div>
+                <div class = "inner"><button class="btn" id="next" onclick="next_month()">></button> </div>
+                <div class = "inner"><button class="btn" id="previous_year" onclick="minus_one_year()">-</button></div>
+                <div class = "inner"><button class="btn" id="next_year" onclick="plus_one_year()">+</button> </div>
+        </caption>
+
+        <table class="table" id="calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+
+            <tbody id="calendar-body">
+
+            </tbody>
+         </table>
+    </div>
+                
+                <div name="month" id="month" style="display: none;">
+                    <option value=0>Jan</option>
+                    <option value=1>Feb</option>
+                    <option value=2>Mar</option>
+                    <option value=3>Apr</option>
+                    <option value=4>May</option>
+                    <option value=5>Jun</option>
+                    <option value=6>Jul</option>
+                    <option value=7>Aug</option>
+                    <option value=8>Sep</option>
+                    <option value=9>Oct</option>
+                    <option value=10>Nov</option>
+                    <option value=11>Dec</option>
+                </div>
+
+
+                <div name="year" id="year" style="display: none;" >
+                    <option value=2000>2000</option>
+                    <option value=2001>2001</option>
+                    <option value=2002>2002</option>
+                    <option value=2003>2003</option>
+                    <option value=2004>2004</option>
+                    <option value=2005>2005</option>
+                    <option value=2006>2006</option>
+                    <option value=2007>2007</option>
+                    <option value=2008>2008</option>
+                    <option value=2009>2009</option>
+                    <option value=2010>2010</option>
+                    <option value=2011>2011</option>
+                    <option value=2012>2012</option>
+                    <option value=2013>2013</option>
+                    <option value=2014>2014</option>
+                    <option value=2015>2015</option>
+                    <option value=2016>2016</option>
+                    <option value=2017>2017</option>
+                    <option value=2018>2018</option>
+                    <option value=2019>2019</option>
+                    <option value=2020>2020</option>
+                </div>
+    
+
+
+<script>
+today = new Date();
+currentMonth = today.getMonth();
+currentYear = today.getFullYear();
+selectYear = document.getElementById("year");
+selectMonth = document.getElementById("month");
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+monthAndYear = document.getElementById("monthAndYear");
+showCalendar(currentMonth, currentYear);
+
+
+function next_month() {
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    showCalendar(currentMonth, currentYear);
+}
+
+function Previous_month(){
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    showCalendar(currentMonth, currentYear);
+}
+
+function plus_one_year()
+{
+    currentYear = currentYear + 1 ;
+    showCalendar(currentMonth, currentYear);
+}
+
+function minus_one_year()
+{
+    currentYear = currentYear - 1 ;
+    showCalendar(currentMonth, currentYear);
+}
+
+
+function showCalendar(month, year) {
+
+    let firstDay = (new Date(year, month)).getDay();
+
+    tbl = document.getElementById("calendar-body"); 
+
+    tbl.innerHTML = "";
+    monthAndYear.innerHTML = months[month] + " " + year;
+    selectYear.value = year;
+    selectMonth.value = month;
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                cell = document.createElement("td");
+                cellText = document.createTextNode("");
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            else if (date > daysInMonth(month, year)) {
+                break;
+            }
+
+            else {
+                cell = document.createElement("td");
+                cellText = document.createTextNode(date);
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.classList.add("bg-info");
+                } 
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                date++;
+            }
+
+
+        }
+
+        tbl.appendChild(row); 
+    }
+
+}
+
+function daysInMonth(iMonth, iYear) {
+    return 32 - new Date(iYear, iMonth, 32).getDate();
+}</script>
+</html>
+</body>
+</html>
